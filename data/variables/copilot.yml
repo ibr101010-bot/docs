@@ -208,6 +208,7 @@ copilot_gemini_3_pro: 'Gemini 3 Pro'
 copilot_gemini_31_pro: 'Gemini 3.1 Pro'
 copilot_gemini_35_flash: 'Gemini 3.5 Flash'
 copilot_gemini_36_flash: 'Gemini 3.6 Flash'
+copilot_gemini_37_flash: 'Gemini 3.7 Flash'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_4o_mini: 'GPT-4o mini'
@@ -239,6 +240,7 @@ copilot_grok_45: 'Grok 4.5'
 copilot_qwen_25: 'Qwen2.5'
 # Microsoft:
 copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
+copilot_mai_code_1_1_flash: 'MAI-Code-1.1-Flash'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
 # Open-weight models:

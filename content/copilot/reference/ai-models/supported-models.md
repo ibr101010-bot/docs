@@ -39,7 +39,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | Model name                                             | Provider  | Release status             |
 |--------------------------------------------------------|-----------|----------------------------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' or model.name == 'MAI-Code-1.1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
@@ -96,22 +96,6 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 
 {% endrowheaders %}
 
-## Model retirement history
-
-The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
-
-{% rowheaders %}
-
-| Model name                                                  | Retirement date             | Suggested alternative             |
-|-------------------------------------------------------------|-----------------------------|-----------------------------------|
-| {% for model in tables.copilot.model-deprecation-history %} |
-| {{ model.name }}{% if model.name == 'Claude Sonnet 4.6' %}[^claude-sonnet-46-annual]{% endif %} | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
-| {% endfor %}                                                |
-
-{% endrowheaders %}
-
-[^claude-sonnet-46-annual]: {% data variables.copilot.copilot_claude_sonnet_46 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.copilot_claude_sonnet_46 %} does not apply to these subscribers.
-
 ## Supported AI models per client
 
 The following table shows which models are available in each client.
@@ -140,6 +124,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_gemini_31_pro %}       | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_35_flash %}     | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_36_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_gemini_37_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gpt_52_codex %}        | No minimum listed | `17.14.19` or `18.0.0`         | `1.5.61` | `0.45.0` | `0.13.0` |
 | {% data variables.copilot.copilot_gpt_53_codex %}        | `v1.104.1` | `17.14.19`                     | `1.5.61` | `0.45.0` | `0.13.0` |
 | {% data variables.copilot.copilot_gpt_54 %}              | `v1.104.1` | `17.14.19`                     | `1.5.66` | `0.47.0` | `0.15.0` |
@@ -155,6 +140,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_kimi_k27_code %}     | `v1.127` | `17.14.6`            | `1.9.1-251` | TBD | TBD |
 | {% data variables.copilot.copilot_kimi_k3 %}     | `v1.131` | TBD            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` | TBD                            | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_mai_code_1_1_flash %}  | `v1.121` | TBD                            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
 
 {% endrowheaders %}
@@ -196,7 +182,7 @@ Access to evaluation models in {% data variables.copilot.copilot_auto_model_sele
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. For the **Evaluation models in {% data variables.product.prodname_copilot_short %} {% data variables.copilot.copilot_auto_model_selection_short %}** setting, select **Disabled** from the dropdown.
 
-[^mai-code-1-flash]: {% data variables.copilot.copilot_mai_code_1_flash %} is a continuously improving model. Performance and behavior may evolve over time as new checkpoints are released.
+[^mai-code-1-flash]: MAI models are continuously improving models. Performance and behavior may evolve over time as new checkpoints are released.
 
 ## Utility models
 
@@ -209,6 +195,26 @@ Utility models power background features across surfaces, and cannot be disabled
 {% data reusables.copilot.model-autoenablement %}
 
 {% data reusables.copilot.model-autoenablement-excluded-models %}
+
+## Model support
+
+If a particular model seems unavailable, refer to the model vendor's support page for the latest information about its availability. If more than one model from different vendors is unavailable, contact {% data variables.contact.contact_support_page %} or refer to the [GitHub status page](https://www.githubstatus.com/) for additional information.
+
+## Model retirement history
+
+The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
+
+{% rowheaders %}
+
+| Model name                                                  | Retirement date             | Suggested alternative             |
+|-------------------------------------------------------------|-----------------------------|-----------------------------------|
+| {% for model in tables.copilot.model-deprecation-history %} |
+| {{ model.name }}{% if model.name == 'Claude Sonnet 4.6' %}[^claude-sonnet-46-annual]{% endif %} | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
+| {% endfor %}                                                |
+
+{% endrowheaders %}
+
+[^claude-sonnet-46-annual]: {% data variables.copilot.copilot_claude_sonnet_46 %} remains available to individual {% data variables.product.prodname_copilot_short %} subscribers on annual plans. The retirement of {% data variables.copilot.copilot_claude_sonnet_46 %} does not apply to these subscribers.
 
 ## Next steps
 
