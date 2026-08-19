@@ -10,11 +10,12 @@ contentType: how-tos
 category:
   - Integrate Copilot with your tools
 redirect_from:
+  - /copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-linear
   - /copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-linear
 ---
 
 > [!NOTE]
-> {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-cloud-agent).
+> {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/agents).
 
 The {% data variables.product.prodname_copilot_short %} integration in Linear allows you to invoke {% data variables.copilot.copilot_cloud_agent %} without leaving your Linear workspace. From within a Linear issue you can initiate {% data variables.copilot.copilot_cloud_agent_short %} sessions, customize which model, custom agent, or branches the agent uses, steer a session, and open pull requests, all using the context of your issue description and comments.
 
